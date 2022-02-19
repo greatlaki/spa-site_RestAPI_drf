@@ -128,4 +128,11 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# IDEA
 .idea
+
+# Nuxt dev/build outputs
+.output
+.nuxt
+# Node dependencies
+node_modules
