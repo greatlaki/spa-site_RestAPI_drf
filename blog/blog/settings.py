@@ -134,6 +134,8 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+LOGOUT_REDIRECT_URL = "/"
+
 ####################################
     ##  CKEDITOR CONFIGURATION ##
 ####################################
