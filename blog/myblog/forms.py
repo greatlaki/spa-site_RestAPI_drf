@@ -10,6 +10,7 @@ class SigUpForm(forms.Form):
         widget=forms.TextInput(attrs={
             'class': "form-control",
             'id': "inputUsername",
+            'placeholder': "Имя пользователя",
         }),
     )
 
@@ -18,6 +19,7 @@ class SigUpForm(forms.Form):
         widget=forms.PasswordInput(attrs={
             'class': "form-control",
             'id': "inputPassword",
+            'placeholder': "Пароль",
         }),
     )
     repeat_password = forms.CharField(
@@ -25,6 +27,7 @@ class SigUpForm(forms.Form):
         widget=forms.PasswordInput(attrs={
             'class': "form-control",
             'id': "ReInputPassword",
+            'placeholder': "Повторите пароль"
         }),
     )
 
