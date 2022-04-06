@@ -7,3 +7,5 @@ class PostAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Post, PostAdmin)
+
+# python manage.py changepassword <user_name> - Сбросить пароль
