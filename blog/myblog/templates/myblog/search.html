@@ -1,3 +1,11 @@
+{% extends './base.html' %}
+{% load static %}
+{% block title %}Поиск{% endblock %}
+
+{% block header %}
+    {% include './block/search_form.html' %}
+{% endblock %}
+
 {% block content %}
 <div class="container">
     <div class="row">
