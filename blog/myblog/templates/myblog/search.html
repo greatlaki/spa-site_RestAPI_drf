@@ -1,11 +1,3 @@
-{% extends './base.html' %}
-{% load static %}
-{% block title %}Поиск{% endblock %}
-
-{% block header %}
-    {% include './block/search_form.html' %}
-{% endblock %}
-
 {% block content %}
 <div class="container">
     <div class="row">
@@ -17,16 +9,11 @@
                 </ol>
             </nav>
             <p class="lead">Найдено записей: {{ count }}</p>
-            {{ results }}<br>
-            <a href=""><h2>Заголовок поста 1</h2></a>
-            <p>Это красткое описание поста. Это красткое описание поста. Это красткое описание поста.</p>
-            <hr>
-            <a href=""><h2>Заголовок поста 2</h2></a>
-            <p>Это красткое описание поста. Это красткое описание поста. Это красткое описание поста.</p>
-            <hr>
-            <a href=""><h2>Заголовок поста 3</h2></a>
-            <p>Это красткое описание поста. Это красткое описание поста. Это красткое описание поста.</p>
-            <hr>
+            {% for result in results %}
+                <a href="{% url 'post_detail' slug=result.url %}"><h2>{{ result.h1 }}</h2></a>
+                <p>{{ result.description|safe }}</p>
+                <hr>
+            {% endfor %}
         </div>
     </div>
 </div>
