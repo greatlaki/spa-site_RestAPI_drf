@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # 3dr party
     'ckeditor',
     'ckeditor_uploader',
+    'taggit',
 ]
 
 MIDDLEWARE = [
