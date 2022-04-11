@@ -7,5 +7,7 @@ router = DefaultRouter()
 router.register('posts', PostViewSet, basename='posts')
 
 urlpatterns = [
-    path("", include(router.urls))
+    path("", include(router.urls)),
+    path("tags/", TagView.as_view()),
+    path("tags/<slug:tag_slug>/", TagDetailView.as_view()),
 ]

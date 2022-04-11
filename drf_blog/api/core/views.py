@@ -1,9 +1,11 @@
 from rest_framework import viewsets
 from .serializers import PostSerializer
 from rest_framework.response import Response
-from rest_framework import permissions, pagination
+from rest_framework import permissions, pagination, generics
+from taggit.models import Tag
 
 from .models import *
+from .serializers import *
 
 
 class PageNumberSetPagination(pagination.PageNumberPagination):
@@ -18,3 +20,20 @@ class PostViewSet(viewsets.ModelViewSet):
     lookup_field = 'slug'
     permission_classes = [permissions.AllowAny]
     pagination_class = PageNumberSetPagination
+
+
+class TagDetailView(generics.ListAPIView):
+    serializer_class = PostSerializer
+    pagination_class = PageNumberSetPagination
+    permission_classes = [permissions.AllowAny]
+
+    def get_queryset(self):
+        tag_slug = self.kwargs['tag_slug'].lower()
+        tag = Tag.objects.get(slug=tag_slug)
+        return Post.objects.filter(tags=tag)
+
+
+class TagView(generics.ListAPIView):
+    queryset = Tag.objects.all()
+    serializer_class = TagSerializer
+    permission_classes = [permissions.AllowAny]
