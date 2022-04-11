@@ -10,4 +10,5 @@ urlpatterns = [
     path("", include(router.urls)),
     path("tags/", TagView.as_view()),
     path("tags/<slug:tag_slug>/", TagDetailView.as_view()),
+    path("aside/", AsideView.as_view()),
 ]
