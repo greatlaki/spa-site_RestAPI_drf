@@ -80,4 +80,10 @@ class RegisterView(generics.GenericAPIView):
 
 
 class ProfileView(generics.GenericAPIView):
-    pass
+    permission_classes = [permissions.IsAuthenticated]
+    serializer_class = UserSerializer
+
+    def get(self, request, *args,  **kwargs):
+        return Response({
+            "user": UserSerializer(request.user, context=self.get_serializer_context()).data,
+        })
