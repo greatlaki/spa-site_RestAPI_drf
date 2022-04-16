@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
 
     # 3d
+    'corsheaders',
     'rest_framework',
     'ckeditor',
     'ckeditor_uploader',
@@ -60,6 +61,10 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 
 # ниже настройки JWT токена
 LOGIN_URL = "/api/v1/signin"
